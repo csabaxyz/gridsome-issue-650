@@ -1,0 +1,17 @@
+version: '3.1'
+
+services:
+  frontend:
+    container_name: gridsome_issue_650_test
+    build:
+      context: .
+      args:
+        # Overwrite the default `production` value in the Dockerfile
+        - NODE_ENV=development
+    restart: always
+    environment:
+      - NODE_ENV=development
+    volumes:
+      - .:/srv/app/src
+    ports:
+      - 8080:8080
